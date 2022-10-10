@@ -3,7 +3,8 @@ from django.utils.timezone import now
 from rest_framework.authtoken.models import Token
 
 
-def login_helper(data: dict, user: get_user_model()) -> dict:
+# def login_helper(data: dict, user: get_user_model()) -> dict:
+def login_helper(data, user):
     if user:
         user.last_login = now()
         user.save()

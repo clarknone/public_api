@@ -7,7 +7,8 @@ UserModel = get_user_model()
 Error = str
 
 
-def create_user(username: str, password: str) -> UserModel | bool:
+# def create_user(username: str, password: str) -> UserModel | bool:
+def create_user(username, password):
     try:
         user = UserModel.objects.create_user(username, password=password)
         return user
@@ -15,9 +16,11 @@ def create_user(username: str, password: str) -> UserModel | bool:
         return False
 
 
-def validate_user(username: str, password: str) -> UserModel | Error:
+# def validate_user(username: str, password: str) -> UserModel | Error:
+def validate_user(username, password):
     """ Validate user """
-    error: Error = ''
+    # error: Error = ''
+    error = ''
     try:
         user: UserModel = UserModel.objects.get(username=username.lower())
         if user.check_password(password):
