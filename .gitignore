@@ -4,3 +4,4 @@
 /api/medial/
 **/__pycache__
 **/*.pyc
+/api/media/
