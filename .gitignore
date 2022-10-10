@@ -1,0 +1,6 @@
+
+/api/blog/migrations/
+/api/authentication/migrations/
+/api/medial/
+**/__pycache__
+**/*.pyc
