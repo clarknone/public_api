@@ -14,8 +14,9 @@ class SignIn(APIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            data = serializer.validated_data
-            user = validate_user(**data)
+            data = serializer.data
+            user = validate_user(**serializer.validated_data)
+            print(data)
             data = login_helper(data, user)
             return Response(data=data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
