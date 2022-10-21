@@ -16,7 +16,6 @@ class SignIn(APIView):
         if serializer.is_valid(raise_exception=True):
             data = serializer.data
             user = validate_user(**serializer.validated_data)
-            print(data)
             data = login_helper(data, user)
             return Response(data=data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
